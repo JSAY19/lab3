@@ -1,0 +1,3 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets(2128,5): warning : The referenced project '..\practice_v3.0\practice_v3.0.vcxproj' does not exist.
+  UnitTestForpraktika3.cpp
+C:\Users\User\Desktop\3lab\praktika3_Superechenko\UnitTestForpraktika3\UnitTestForpraktika3.cpp(4,10): fatal  error C1083: Не удается открыть файл включение: ../praktika3/date.h: No such file or directory,

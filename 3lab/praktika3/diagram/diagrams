@@ -1,0 +1,21 @@
+@startuml
+
+class Date {
+  - day: int
+  - month: int
+  - year: int
+
+  + Date()
+}
+
+class Planet {
+  - name: string
+  - date: Date
+  - radius: double
+
+  + Planet()
+}
+
+Date -- Planet
+
+@enduml
