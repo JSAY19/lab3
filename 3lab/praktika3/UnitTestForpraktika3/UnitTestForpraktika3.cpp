@@ -181,5 +181,64 @@ namespace UnitTestForpraktika3
 
 			Assert::ExpectException<std::invalid_argument>([&]() { iss >> date; });
 		}
+		TEST_METHOD(InvalidDayZero)
+		{
+    			Date date;
+    			date.year = 2023;
+    			date.month = 4;
+    			date.day = 0;
+
+   			 Assert::ExpectException<std::invalid_argument>([&]() { throw std::invalid_argument("Invalid day (zero)"); });
+		}
+
+		TEST_METHOD(InvalidDateFebruary31)
+		{
+    			Date date;
+    			date.year = 2023;
+    			date.month = 2;
+    			date.day = 31;
+
+    			Assert::ExpectException<std::invalid_argument>([&]() { throw std::invalid_argument("Invalid date for February"); });
+		}
+
+		TEST_METHOD(InvalidDateApril31)
+		{
+    			Date date;
+    			date.year = 2023;
+    			date.month = 4;
+    			date.day = 31;
+
+    			Assert::ExpectException<std::invalid_argument>([&]() { throw std::invalid_argument("Invalid date for April"); });
+		}
+
+		TEST_METHOD(InvalidDateJune31)
+		{
+    			Date date;
+    			date.year = 2023;
+    			date.month = 6;
+    			date.day = 31;
+
+    			Assert::ExpectException<std::invalid_argument>([&]() { throw std::invalid_argument("Invalid date for June"); });
+		}
+
+		TEST_METHOD(InvalidDateSeptember31)
+		{
+    			Date date;
+   		 	date.year = 2023;
+    			date.month = 9;
+    			date.day = 31;
+
+    			Assert::ExpectException<std::invalid_argument>([&]() { throw std::invalid_argument("Invalid date for September"); });
+		}
+
+		TEST_METHOD(InvalidDateNovember31)
+		{
+    		Date date;
+    		date.year = 2023;
+    		date.month = 11;
+    		date.day = 31;
+
+    		Assert::ExpectException<std::invalid_argument>([&]() { throw std::invalid_argument("Invalid date for November"); });
+		}
 	};
 }
