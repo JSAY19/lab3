@@ -139,7 +139,7 @@ namespace UnitTestForpraktika3
 		}
 
 		TEST_METHOD(DateNonLeapYearTest)
-		{
+		{       // Проверка обработки попытки чтения некорректной даты 29 февраля в невисокосном году Date date;
 			Date date;
 			std::stringstream ss("2023.2.29");
 			Assert::ExpectException<std::invalid_argument>([&]() { ss >> date; });
