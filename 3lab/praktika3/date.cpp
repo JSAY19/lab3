@@ -18,14 +18,14 @@ std::istream& operator>>(std::istream& is, Date& date) {
         is.get();
         is >> date.day;
 
-        // Проверка на високосный год
+        // РћС€РёР±РєР° РґР°С‚С‹1
         if (date.month == 2 && date.day == 29 && !IsLeapYear(date.year)) {
             throw std::runtime_error("Invalid date: Not a leap year, but day is 29 in February.");
         }
 
     }
     catch (const std::exception& e) {
-        // Обработка ошибок чтения даты
+        // РћС€РёР±РєР° РґР°С‚С‹2
         std::cerr << "Error while reading Date data: " << e.what() << std::endl;
     }
 
