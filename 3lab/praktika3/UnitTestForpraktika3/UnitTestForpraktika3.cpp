@@ -7,16 +7,16 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace UnitTestFor3practice
+namespace UnitTestForpraktika3
 {
-	TEST_CLASS(FileOperationsTest) { // Класс для тестирования операций с файлами
+	TEST_CLASS(FileOperationsTest) { 
 public:
 
-    TEST_METHOD(FileOperationsTest_ReadAndOutput) { // Метод для тестирования чтения и вывода данных из файла
+    TEST_METHOD(FileOperationsTest_ReadAndOutput) { 
         string path = "test.txt";
         ofstream fs(path);
-        fs << "Название: Earth | Дата: 2023.12.25 | Радиус: 6371.0" << endl;
-        fs << "Название: Venera | Дата: 2023.12.25 | Радиус: 5039.5" << endl;
+        fs << "ГЌГ Г§ГўГ Г­ГЁГҐ: Earth | Г„Г ГІГ : 2023.12.25 | ГђГ Г¤ГЁГіГ±: 6371.0" << endl;
+        fs << "ГЌГ Г§ГўГ Г­ГЁГҐ: Venera | Г„Г ГІГ : 2023.12.25 | ГђГ Г¤ГЁГіГ±: 5039.5" << endl;
         fs.close();
 
         try {
@@ -30,10 +30,10 @@ public:
     }
 };
 
-    TEST_CLASS(PlanetTest) { // Класс для тестирования функционала связанного с классом Planet
+    TEST_CLASS(PlanetTest) { 
 public:
 
-    TEST_METHOD(PlanetOutputOperatorTest) { // Тестирование оператора вывода для класса Planet
+    TEST_METHOD(PlanetOutputOperatorTest) { 
         Planet planet;
         planet.name = "Earth";
         planet.date.year = 2023;
@@ -44,13 +44,13 @@ public:
         std::stringstream ss;
         ss << planet;
 
-        std::string expected_output = "Название: Earth | Дата: 2023.12.25 | Радиус: 6371.0";
+        std::string expected_output = "ГЌГ Г§ГўГ Г­ГЁГҐ: Earth | Г„Г ГІГ : 2023.12.25 | ГђГ Г¤ГЁГіГ±: 6371.0";
         Assert::AreEqual(ss.str(), expected_output);
     }
 
-    TEST_METHOD(PlanetInputOperatorTest) { // Тестирование оператора ввода для класса Planet
+    TEST_METHOD(PlanetInputOperatorTest) { 
         Planet planet;
-        std::stringstream ss("Название: Venera | Дата: 2023.12.25 | Радиус: 5039.5");
+        std::stringstream ss("ГЌГ Г§ГўГ Г­ГЁГҐ: Venera | Г„Г ГІГ : 2023.12.25 | ГђГ Г¤ГЁГіГ±: 5039.5");
         ss >> planet;
 
         Assert::AreEqual(planet.name, std::string("Venera"));
@@ -90,10 +90,10 @@ public:
 
     };
 
-    TEST_CLASS(DateTest) { // Класс для тестирования функционала связанного с классом Date
+    TEST_CLASS(DateTest) { 
 public:
 
-    TEST_METHOD(DateOutputOperatorTest) { // Тестирование оператора вывода для класса Date
+    TEST_METHOD(DateOutputOperatorTest) { 
         Date date;
         date.year = 2023;
         date.month = 12;
@@ -104,7 +104,7 @@ public:
         Assert::AreEqual(ss.str(), std::string("2023.12.25"));
     }
 
-    TEST_METHOD(DateInputOperatorTest) {  // Тестирование оператора ввода для класса Date
+    TEST_METHOD(DateInputOperatorTest) {  
         Date date;
         std::stringstream ss("2023.12.25");
         ss >> date;
@@ -122,7 +122,7 @@ public:
         std::stringstream ss;
         ss << date;
 
-        // Проверяем, что для високосного года корректно выводится дата 29 февраля
+        
         Assert::AreEqual(ss.str(), std::string("2024.2.29"));
     }
 
@@ -131,7 +131,7 @@ public:
         std::stringstream ss("2023.2.29");
         ss >> date;
 
-        // Проверяем, что для невисокосного года не возможно прочитать 29 февраля
+        
         Assert::AreNotEqual(date.day, 29);
     }
 
@@ -142,7 +142,7 @@ public:
         date.month = 4; 
         date.day = 31;   
 
-        // Проверяем, что выбрасывается исключение при попытке задать некорректный день в месяце
+        // РџРѕРєСЂС‹С‚РёРµ С‚РµСЃС‚РѕРј РґР»СЏ РІРёСЃРєРѕСЃРЅРѕРіРѕ РіРѕРґР°(РґРµРЅСЊ Р°РїСЂРµР»СЏ)
         Assert::ExpectException<std::invalid_argument>([&]() { throw std::invalid_argument("Invalid day for April"); });
     }
 
@@ -152,7 +152,7 @@ public:
         date.year = 2023;
         date.month = 13; 
 
-        // Проверяем, что выбрасывается исключение при попытке задать некорректный месяц
+        // РћС€РёР±РєР° Р·РЅР°С‡РµРЅРёСЏ РјРµСЃСЏС†Р°
         Assert::ExpectException<std::invalid_argument>([&]() { throw std::invalid_argument("Invalid month"); });
     }
 
@@ -160,11 +160,11 @@ public:
     {
         Date date;
         date.year = -100;  
-        // Проверяем, что выбрасывается исключение при попытке задать некорректный год
+        // РћС€РёР±РєР° Р·РЅР°С‡РµРЅРёРµ РіРѕРґР°
         Assert::ExpectException<std::invalid_argument>([&]() { throw std::invalid_argument("Invalid year"); });
 
         date.year = 10000; 
-        // Проверяем, что выбрасывается исключение при попытке задать некорректный год
+        // РћС€РёР±РєР° Р·РЅР°С‡РµРЅРёРµ РіРѕРґР°
         Assert::ExpectException<std::invalid_argument>([&]() { throw std::invalid_argument("Invalid year"); });
     }
 
@@ -173,7 +173,7 @@ public:
         Date date;
         std::istringstream iss("2023-04-31");  
 
-        // Проверяем, что выбрасывается исключение при попытке прочитать дату в некорректном формате
+        // РћС€РёР±РєР° С„РѕСЂРјР°С‚Р° РґР°С‚С‹
         Assert::ExpectException<std::invalid_argument>([&]() { iss >> date; });
     }
     };
