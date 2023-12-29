@@ -10,7 +10,7 @@
 using namespace std;
 
 int main() {
-    // Включаем утечки памяти
+    // Включаем утечки памяти это сразу для 5 лабы
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
     setlocale(LC_ALL, "Ru");
 
