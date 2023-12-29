@@ -9,6 +9,16 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
+Date(int dd, int mm, int yyyy) { 
+	if (mm < 1 || mm > 12) { 
+		throw std::invalid_argument("invalid month"); } 
+	if (yyyy < 0) { 
+		throw std::invalid_argument("invalid year"); }
+    m_dd = dd; 
+    m_mm = mm; 
+    m_yyyy = yyyy;
+}
+
 namespace UnitTestForpraktika3
 {
 	TEST_CLASS(FileOperationsTest)
