@@ -5,6 +5,15 @@
 
 using namespace std;
 
+Date(int dd, int mm, int yyyy) { 
+	if (mm < 1 || mm > 12) { 
+		throw std::invalid_argument("invalid month"); } 
+	if (yyyy < 0) { 
+		throw std::invalid_argument("invalid year"); }
+    m_dd = dd; 
+    m_mm = mm; 
+    m_yyyy = yyyy;
+}
 
 bool IsLeapYear(int year) {
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
