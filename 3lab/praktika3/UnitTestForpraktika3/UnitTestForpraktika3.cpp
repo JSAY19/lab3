@@ -102,7 +102,12 @@ namespace UnitTestForpraktika3
 	TEST_CLASS(DateTest)
 	{ // Класс для тестирования функционала связанного с классом Date
 	public:
-
+		TEST_METHOD(InvalidMonth)
+		{ Assert::ExpectException([&]() 
+		{ Date date{ 10, 13, 2023 } 
+		}); 
+		}
+		
 		TEST_METHOD(DateOutputOperatorTest)
 		{ // Тестирование оператора вывода для класса Date
 			Date date;
