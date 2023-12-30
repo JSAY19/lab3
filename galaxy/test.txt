@@ -1,0 +1,7 @@
+Mlechniyput
+[
+"Mercury" 1631.11.07 2439.7 
+"Venera" 1631.11.07 2439.7 
+"PlanetaIustal" 1631.11.07 2439.7
+]
+
